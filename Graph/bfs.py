@@ -25,7 +25,7 @@ while(q):
             q.append(i) # append non visited elements to queue
             vis[i] = 1  # also mark this as visited
     
-
+#ex
 # 9 9
 # 0 1
 # 0 6
