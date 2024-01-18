@@ -1,12 +1,13 @@
-n,m = map(int,input().split()) # take node and edges as input and map them to n and m
+# n,m = map(int,input().split()) # take node and edges as input and map them to n and m
 
-adj = [list() for _ in range(n+1)] # create a list that contains n empty lists
+# adj = [list() for _ in range(n+1)] # create a list that contains n empty lists
 
-for _ in range(m):  # 0 indexed undirected graph
-    u,v = map(int,input().split())
-    adj[u].append(v)  # append v to the list at uth index in adj list
-    adj[v].append(u)
-
+# for _ in range(m):  # 0 indexed undirected graph
+#     u,v = map(int,input().split())
+#     adj[u].append(v)  # append v to the list at uth index in adj list
+#     adj[v].append(u)
+n,m = 9,9
+adj =[[1,6],[3,4,0],[],[1],[1,5],[4,8],[7,9,0],[6,8],[5,7],[6]]
 
 
 
