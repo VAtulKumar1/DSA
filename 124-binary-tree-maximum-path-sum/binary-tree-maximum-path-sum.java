@@ -18,11 +18,10 @@ class Solution {
         if(node == null){
             return 0;
         }
-        int ls = calculateSum(node.left,maxSum);
-        int rs = calculateSum(node.right,maxSum);
-        if(maxSum[0]<(Math.max(node.val,node.val+Math.max(ls,rs)))) 
-            maxSum[0] = (Math.max(node.val,node.val+Math.max(ls,rs)));
-        if(maxSum[0]<(ls+rs+node.val)) maxSum[0] = (ls+rs+node.val);
+        int ls = Math.max(0,calculateSum(node.left,maxSum));
+        int rs =  Math.max(0,calculateSum(node.right,maxSum));
+        
+        maxSum[0] = Math.max(maxSum[0],ls+rs+node.val);
         return Math.max(node.val,node.val+Math.max(ls,rs));
     }
     public int maxPathSum(TreeNode root) {
