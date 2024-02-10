@@ -17,7 +17,10 @@ public class PreOrderTraversal {
 
     public static void preOrderTraversal(Node root,List<Integer> list){
         if(root == null){
+
+
             return;
+
         }
         list.add(root.data);
         preOrderTraversal(root.left,list);
@@ -37,6 +40,9 @@ public class PreOrderTraversal {
        root.right.left.left = new Node(13);
        root.right.right= new Node(5);
        List<Integer> res = new ArrayList<>();
+       List<String[]> path= new ArrayList<>();
+       String[] str=new String[1];
+       str[0]="1";
        preOrderTraversal(root,res);
        for(int val: res){
            System.out.print(val+" ");
