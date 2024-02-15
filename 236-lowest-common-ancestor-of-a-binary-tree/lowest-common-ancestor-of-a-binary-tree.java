@@ -8,40 +8,20 @@
  * }
  */
 class Solution {
-    public boolean findPath(TreeNode root,TreeNode target,List<TreeNode> res){
-        if(root==null) return  false;
-        res.add(root);
-        if(root.val==target.val) return true;
-        if(findPath(root.left,target,res)||findPath(root.right,target,res)) return true;
-        res.remove(res.size()-1);
-
-        return false;
-
-
-
-
-    }
+    
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> pathTop = new ArrayList<>();
-        TreeNode res = null;
-        findPath(root,p,pathTop);
-        List<TreeNode> pathToq = new ArrayList<>();
-        findPath(root,q,pathToq);
-        int n = Math.min(pathTop.size(),pathToq.size());
-        int i=0;
-        for (; i <n ; i++) {
-            if(pathTop.get(i)!=pathToq.get(i))
-            {
-                res=pathTop.get(i-1);
-                break;
-            }
-
+       if(root == null || root==p || root == q) {
+           return root;
+       }
+    
+       TreeNode l = lowestCommonAncestor(root.left,p,q);
+       TreeNode r = lowestCommonAncestor(root.right,p,q);
+        if (l == null) {
+            return r;
         }
-
-        if(res==null){
-            return pathTop.get(i-1);
+        if (r == null) {
+            return l;
         }
-
-        return res;
+       return root;
     }
 }
