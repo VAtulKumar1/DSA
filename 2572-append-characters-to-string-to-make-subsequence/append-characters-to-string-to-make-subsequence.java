@@ -7,12 +7,10 @@ class Solution {
         while(index < t.length() && start < s.length()){
             
             if(t.charAt(index) == s.charAt(start)){
-                start++;
                 index++;
             }
-            else{
-                start++;
-            }
+            
+            start++;
            
         }
 
