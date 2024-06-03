@@ -4,7 +4,9 @@ class Solution {
 
         int index = 0;
         int start = 0;
-        while(index < t.length() && start < s.length()){
+        int sLength = s.length();
+        int tLength = t.length();
+        while(index < tLength && start < sLength){
             
             if(t.charAt(index) == s.charAt(start)){
                 index++;
@@ -14,7 +16,7 @@ class Solution {
            
         }
 
-        return t.length()-index;
+        return tLength-index;
         
     }
 }
