@@ -39,6 +39,20 @@ public class KnapsackParent {
         return 0;
     }
 
+    public static  int knapsackBottmsUp(int[] cost,int[] values,int W,int n,int[][] t){
+
+        if(values[n-1] <= W){
+            t[n-1][W-1] =  Math.max(cost[n-1]+knapsack(cost,values,W-values[n-1],n-1),
+                    knapsack(cost,values,W,n-1));
+            return t[n-1][W-1];
+        }
+        else if(values[n-1] > W){
+            t[n-1][W] = knapsack(cost,values,W,n-1);
+            return  t[n-1][W];
+        }
+
+        return 0;
+    }
     public static void main(String[] args) {
 
         int[] cost = { 1 , 2 , 3 , 5};
@@ -50,7 +64,10 @@ public class KnapsackParent {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < W ; j++) {
-                t[i][j] = -1;
+                if(i == 0 || j == 0){
+                    t[i][j] = 0;
+                }
+
 
             }
 
