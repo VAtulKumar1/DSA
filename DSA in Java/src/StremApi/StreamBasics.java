@@ -1,8 +1,6 @@
 package StremApi;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
@@ -19,11 +17,48 @@ public class StreamBasics {
 
 //        Stream<Integer> s2 = Stream.of(1,2,3,5,6,10,45);
 //        s2.forEach(System.out::println);
-        Supplier<Integer> sup = () -> new Random().nextInt();
-        Stream<Integer> s3 = Stream.generate(sup);
-        s3.
-                limit(10).
-                forEach(System.out::println);
+//        Supplier<Integer> sup = () -> new Random().nextInt();
+//        Stream<Integer> s3 = Stream.generate(sup);
+//        s3.
+//                limit(10).
+//                forEach(System.out::println);
+
+        /*map intermediate operation on streams*/
+
+//
+//        List<String>  names = List.of("Atul","Alok","Niaranjan");
+//        var response =names.stream()
+//                .mapToInt(String::length)
+//                .sum();
+//        System.out.println(response);
+
+
+//        List<String>  names = List.of("Atul","Alok","Niaranjan");
+//        names.stream()
+//                .map(s-> new StringBuilder(s).reverse())
+//                .forEach(System.out::println);
+
+        List<List<Integer>> list1 = List.of(
+                List.of(1,2,3,4,5),
+                List.of(10,2,3,20)
+        );
+
+        var res = list1.stream()
+                .flatMap(Collection::stream)
+                .reduce(0, Integer::sum);
+        System.out.println(res);
+
+        String digits = "0123456789";
+        List<String> list2 = List.of("hjfdfd12323dgh","jdgd7363452gkdg","dkhdg7823vdhwgdd7ege37teh3");
+        var res1 = list2.stream()
+                .flatMap(s-> Arrays.stream(s.split("")))
+                .filter(digits::contains)
+                .count();
+
+        System.out.println(res1);
+
+
+
     }
 
 }
