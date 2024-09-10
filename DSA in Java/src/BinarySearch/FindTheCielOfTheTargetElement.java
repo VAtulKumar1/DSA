@@ -9,6 +9,7 @@ public class FindTheCielOfTheTargetElement {
             int mid = start + (end -start) / 2;
             if( target == nums[mid]){
                 res = nums[mid];
+                return res;
 
             }
             else if( target < nums[mid]){

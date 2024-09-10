@@ -7,8 +7,10 @@ public class FindTheFloorOfAnElementInASortedArray {
         int res = -1;
         while(start <= end){
             int mid = start + (end - start) / 2;
-            if(target  == nums[mid])
+            if(target  == nums[mid]) {
                 res = nums[mid];
+                return res;
+            }
             else if(target < nums[mid]){
                 end = mid -1;
             }
