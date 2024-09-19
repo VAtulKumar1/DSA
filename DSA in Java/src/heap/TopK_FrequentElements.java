@@ -42,5 +42,6 @@ public class TopK_FrequentElements {
         int[] nums = {6,6,6,6,6,5,5,5,5,5,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,2,2,8,10,9};
         int k = 3;
         List<Integer> res = find(nums,k);
+        System.out.println(res);
     }
 }
